@@ -36,9 +36,10 @@ Operations and consonants are enums with the following mappings.
 | 5     | Unused   |
 | 6     | Unused   |
 | 7     | Pop      |
+
 Note that the "constant" pop means to use the stored value from pushing. While this is not a constant it is done this way from performance reasons.
 
-To evaluate an expression start by setting the accumulator equal to the first constant. 
+To evaluate an expression start by setting the accumulator equal to the first constant. Then update the accumulator to be the operation performed on the current value of the accumulator with the next available constant. Then remove the used constant. This process is repeated. The only exception push which stores the current value of the accumulator and then puts the next available constant into the accumulator then removes it.
 
 ## Optimising evaluation
 | Version | Time (ns) | Notes               |
